@@ -1,0 +1,35 @@
+2023-10-18 14:11:10 [INFO]: [BetterRTP] Loading Overrides...
+2023-10-18 14:11:10 [INFO]: [BetterRTP] Loading World Types...
+2023-10-18 14:11:10 [INFO]: [BetterRTP] - World Type for 'world' set to 'NORMAL'
+2023-10-18 14:11:10 [INFO]: [BetterRTP] - World Type for 'world_nether' set to 'NETHER'
+2023-10-18 14:11:10 [INFO]: [BetterRTP] - World Type for 'world_the_end' set to 'NORMAL'
+2023-10-18 14:11:10 [INFO]: [BetterRTP] Loading Defaults...
+2023-10-18 14:11:10 [INFO]: [BetterRTP] Loading Custom Worlds...
+2023-10-18 14:11:10 [INFO]: [BetterRTP] Custom World 'orbitalsetup' registered:
+2023-10-18 14:11:10 [INFO]: [BetterRTP] - UseWorldBorder: true
+2023-10-18 14:11:10 [INFO]: [BetterRTP] - CenterX: 0
+2023-10-18 14:11:10 [INFO]: [BetterRTP] - CenterZ: 0
+2023-10-18 14:11:10 [INFO]: [BetterRTP] - MaxRadius: 1000
+2023-10-18 14:11:10 [INFO]: [BetterRTP] - MinRadius: 100
+2023-10-18 14:11:10 [INFO]: [BetterRTP] - Shape: SQUARE
+2023-10-18 14:11:10 [INFO]: [BetterRTP] - MinY: 0
+2023-10-18 14:11:10 [INFO]: [BetterRTP] - MaxY: 320
+2023-10-18 14:11:10 [INFO]: [BetterRTP] - Cooldown: 60
+2023-10-18 14:11:11 [INFO]: [BetterRTP] Addon LOGGER has been enabled!
+2023-10-18 14:11:11 [INFO]: [BetterRTP] Addon PORTALS has been enabled!
+2023-10-18 14:11:12 [INFO]: [BetterRTP] Database CHUNK_DATA:ChunkData configured and loaded!
+2023-10-18 14:11:12 [INFO]: [BetterRTP] Database PLAYERS:Players configured and loaded!
+2023-10-18 14:11:12 [INFO]: [BetterRTP] Database QUEUE:Queue configured and loaded!
+2023-10-18 14:11:13 [INFO]: [BetterRTP] Attempting to queue up some more safe locations...
+2023-10-18 14:11:16 [WARNING]: [BetterRTP] Seems like the world `orbitalsetup_nether` does not have a `WorldType` declared. Please add/fix this in the config.yml file! This world will be treated as an overworld! If this world is a nether world, configure it to NETHER (example: `- orbitalsetup_nether: NETHER`
+2023-10-18 14:12:53 [INFO]: [BetterRTP] Max attempts to create a Queue reached for default_orbitalsetup_nether (amount: 0)
+2023-10-18 14:12:54 [INFO]: [BetterRTP] Queueing paused, max queue limit reached!
+2023-10-18 14:26:51 [INFO]: [BetterRTP] ICookBacon123 executed: /rtp portals
+2023-10-18 14:29:15 [INFO]: [BetterRTP] ICookBacon123 executed: /rtp portals create
+2023-10-18 14:29:20 [INFO]: [BetterRTP] ICookBacon123 executed: /rtp portals create SurvivalRTP
+2023-10-18 14:29:27 [INFO]: [BetterRTP] ICookBacon123 executed: /rtp portals loc1
+2023-10-18 14:29:32 [INFO]: [BetterRTP] ICookBacon123 executed: /rtp portals loc2
+2023-10-18 14:29:44 [INFO]: [BetterRTP] ICookBacon123 executed: /rtp portals create SurvivalRTP
+2023-10-18 14:29:47 [WARNING]: [BetterRTP] Seems like the world `orbitalsetup` does not have a `WorldType` declared. Please add/fix this in the config.yml file! This world will be treated as an overworld! If this world is a nether world, configure it to NETHER (example: `- orbitalsetup: NETHER`
+2023-10-18 14:29:48 [INFO]: [BetterRTP] -Removed a queue Location{world=CraftWorld{name=orbitalsetup},x=-675.5,y=79.0,z=525.5,pitch=30.149908,yaw=-153.98712}
+2023-10-18 14:30:17 [INFO]: [BetterRTP] -Removed a queue Location{world=CraftWorld{name=orbitalsetup},x=545.5,y=71.0,z=909.5,pitch=17.400019,yaw=-166.1374}

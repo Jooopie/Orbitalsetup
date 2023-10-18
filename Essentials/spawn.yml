@@ -1,0 +1,17 @@
+spawns:
+  default:
+    world: 5a9f0415-a8e1-4c33-9903-e26f83301b48
+    world-name: orbitalsetup
+    x: -397.5179504741134
+    y: 64.0
+    z: 91.06655010185389
+    yaw: -179.937744140625
+    pitch: -0.4499833583831787
+  newbies:
+    world: bd7f1ce0-1d16-4fda-9f2e-50207b0aa5b5
+    world-name: world
+    x: 37.38886338694976
+    y: 117.0
+    z: -23.598715478187472
+    yaw: -179.70022583007812
+    pitch: 4.2000203132629395

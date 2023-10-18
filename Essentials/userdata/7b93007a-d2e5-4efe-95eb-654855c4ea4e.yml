@@ -1,0 +1,38 @@
+teleportenabled: true
+teleportauto: false
+godmode: false
+muted: false
+jailed: false
+ip-address: 90.145.95.214
+afk: false
+socialspy: false
+npc: false
+powertoolsenabled: true
+accepting-pay: true
+baltop-exempt: false
+timestamps:
+  lastteleport: 1697632228568
+  lastheal: 0
+  mute: 0
+  jail: 0
+  onlinejail: 0
+  logout: 1697634627539
+  login: 1697631931065
+money: '0'
+last-account-name: ICookBacon123
+logoutlocation:
+  world: 5a9f0415-a8e1-4c33-9903-e26f83301b48
+  world-name: orbitalsetup
+  x: -397.1961242754764
+  y: 64.0
+  z: 93.3028678210917
+  yaw: -162.384521484375
+  pitch: 5.999935626983643
+lastlocation:
+  world: 5a9f0415-a8e1-4c33-9903-e26f83301b48
+  world-name: orbitalsetup
+  x: 545.5
+  y: 71.0
+  z: 909.5
+  yaw: -164.03744506835938
+  pitch: 13.350013732910156
