@@ -1,0 +1,14 @@
+# This is how ChatSentry will store player preferences, module triggers/violations, and warnings
+
+# Options: "SQLITE" "MYSQL"
+# SQLite: data will be stored in db files locally in the ChatSentry directory
+# MySQL: data will be stored remotely in the supplied database. If you are a network this method is recommended to allow data synchronization cross-server
+type: "SQLITE"
+
+# MySQL credentials
+mysql:
+  host: "localhost"
+  port: 3306
+  user: "root"
+  password: ""
+  database: "chatsentry"

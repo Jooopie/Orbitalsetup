@@ -1,0 +1,24 @@
+# AntiAFK+ Configuration
+
+
+# How fast Players get checked. Should be between 10-120 (slower = better Performance)
+check_delay: 60
+
+# Disabling worlds here will prevent AntiAFK+ to check Players in these worlds.
+disabled_worlds:
+- ''
+
+# Setup actions for failed Checks
+#   executeAfter: After how many failed checks (min. 2)
+#   executions: List of things that happen
+#     - <cmd>kick %player%
+#     - <msg>&cExample Message
+#     - <sound>ENTITY_EXPERIENCE_ORB_PICKUP
+#     - <connect>servername
+actions:
+- executeAfter: 5
+  executions:
+  - <msg>&cIt seems that you're AFK, move to cancel the AFK kick.
+- executeAfter: 10
+  executions:
+  - <cmd>kick %player% You were kicked because you were AFK

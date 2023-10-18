@@ -1,0 +1,731 @@
+#     __  ______             _____ __        ________________          __  ____
+#    / / / / / /__________ _/ ___// /_____ _/ __/ __/ ____/ /_  ____ _/ /_/ __ \_________
+#   / / / / / __/ ___/ __ `/\__ \/ __/ __ `/ /_/ /_/ /   / __ \/ __ `/ __/ /_/ / ___/ __ \
+#  / /_/ / / /_/ /  / /_/ /___/ / /_/ /_/ / __/ __/ /___/ / / / /_/ / /_/ ____/ /  / /_/ /
+#  \____/_/\__/_/   \__,_//____/\__/\__,_/_/ /_/  \____/_/ /_/\__,_/\__/_/   /_/   \____/
+#
+#   UltraStaffChatPro v2.0.17 - config.yml - Main configuration file
+#   Copyright (c) 2022-present Joshua Sing <joshua@hypera.dev>. All Rights Reserved.
+#
+#   Helpful Links
+#    - Support        |  https://discord.hypera.dev/
+#    - Documentation  |  https://wiki.hypera.dev/ultrastaffchatpro/
+#
+#   User placeholders
+#    - {player}           |  Player's username
+#    - {uuid}             |  Player's unique id
+#    - {server}           |  Player server's name (Proxy only)
+#    - {afk}              |  Player AFK status
+#    - {playtime}         |  Player's online time
+#    - {playtime_server}  |  Player's server online time (Resets when they switch server)
+#
+#   User integration placeholders
+#    - LuckPerms          |  {lp_prefix}, {lp_group}, {lp_group_display}, {lp_suffix}, {lp_<meta-key>}
+#    - Ultra Permissions  |  {up_prefix}, {up_suffix}
+#    - PremiumVanish      |  {vanish}
+#    - RedisBungee        |  {proxy_id}
+#
+#   RGB Support
+#    - RGB Format  |  `&#aabbcc` (eg. `&#2155cc`)
+#
+
+# [ UltraStaffChatPro | General Configuration ]
+general:
+
+  # General | Default console placeholders
+  console:
+
+    # Placeholder | Name
+    name: "Console"
+
+    # Placeholder | Unique ID (UUID)
+    uuid: "f78a4d8d-d51b-4b39-98a3-230f2de0c670"
+
+    # Placeholder | Server
+    server: "Global"
+
+  # General | Unknown server name
+  unknown-server: "Unknown"
+
+  # General | Server display names (Proxy only)
+  server-display:
+    # Original name : Display name
+    lobby: "Lobby"
+    survival: "SMP"
+
+  # General | Disabled servers (Proxy only)
+  disabled-servers:
+    - "auth"
+
+
+
+# [ UltraStaffChatPro | Placeholder Configuration ]
+placeholders:
+
+  # Placeholder | Vanish
+  #  This allows you to change the value of the {vanish} placeholder.
+  #  This only works with the PremiumVanish integration.
+  vanish:
+    vanished: "&7Vanished | "
+    not-vanished: ""
+
+  # Placeholder | AFK
+  afk:
+    afked: "&c&lAFK &7| "
+    not-afk: ""
+
+  # Placeholder | Playtime
+  #  Used for {playtime} and {playtime_server}
+  #  Format placeholders: {hours}, {minutes}, {seconds}
+  #                       {hours_total}, {minutes_total}, {seconds_total}
+  playtime:
+    enabled: true
+    format: "{hours}h, {minutes}m, {seconds}s"
+
+
+
+# [ UltraStaffChatPro | Discord Configuration ]
+discord:
+
+  # Discord | Enabled
+  enabled: false
+
+  # Discord | Mode
+  #  Options: "BOT", "WEBHOOK"
+  mode: "BOT"
+
+  # Discord | Bot Configuration
+  #  Only used if 'mode' is set to "BOT"
+  bot:
+
+    # Bot | Token
+    token: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+    # Bot | Discord guild ID
+    guild: "XXXXXXXXXXXXXXXXXX"
+
+    # Bot | Discord channel ID
+    channel: "XXXXXXXXXXXXXXXXXX"
+
+    # Bot | Status
+    #  Options: "ONLINE", "IDLE", "DO_NOT_DISTURB", "INVISIBLE"
+    status: "ONLINE"
+
+    # Bot | Activity
+    activity:
+
+      # Activity | Enabled
+      enabled: false
+
+      # Activity | Type
+      #  Options: "DEFAULT" (Playing), "WATCHING", "LISTENING"
+      type: "WATCHING"
+
+      # Activity | Message
+      #  Placeholders: {online} (Total online players), {count} (Total online staff / People with the StaffList display permission)
+      message: "{online} players on play.example.net"
+
+  # Discord | Webhook Configuration
+  #  Only needed if 'mode' is set to "WEBHOOK"
+  #  Note: Two-way chat requires the use of a bot.
+  webhook:
+
+    # Webhook | Avatar
+    #  Placeholders: {player}, {uuid}
+    avatar: "https://crafatar.com/avatars/{uuid}.png"
+
+    # Webhook | Username
+    username: "{player}"
+
+    # Webhook | URL
+    url: "https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+  # Discord | Display
+  display:
+
+    # Display | Name
+    #  How should Discord users display in-game?
+    #  Options: "TAG" (Name#1234), "NAME" (Nickname), "USERNAME" (Username)
+    name: "TAG"
+
+    # Display | Server
+    #  What should the {server} placeholder be
+    #  replaced with for people talking from Discord?
+    server: "Discord"
+
+  # Discord | Allowed Mentions
+  #  Options: "ALL" (@everyone, @here, users, roles), "ROLES" (users, roles), "USERS" (users), "NONE"
+  allowed-mentions: "NONE"
+
+
+# [ UltraStaffChatPro | StaffChat Configuration ]
+staffchat:
+
+  # StaffChat | Prefix
+  prefix:
+
+    # Prefix | Enabled
+    enabled: true
+
+    # Prefix | Chat message prefix
+    prefix: "#"
+
+  # StaffChat | Toggle
+  toggle:
+    enabled: true
+
+  # StaffChat | Mute
+  mute:
+    enabled: false
+    hide-events: false # Should join/switch/leave messages also be hidden?
+
+  # StaffChat | Global Mute
+  global-mute:
+    enabled: false
+
+  # StaffChat | AFK
+  afk:
+    enabled: false
+    auto-unafk: true # Should the user be marked as not afk if they send a message in staff chat?
+
+  # StaffChat | Join messages
+  join:
+    enabled: true
+
+  # StaffChat | Switch messages
+  switch:
+    enabled: true
+
+  # StaffChat | Leave messages
+  leave:
+    enabled: true
+
+  # StaffChat | Formatting codes
+  #  Should players be able to use formatting codes in messages?
+  formatting:
+    enabled: true
+
+  # StaffChat | Console
+  console:
+
+    # StaffChat | Should console receive staffchat messages?
+    receive-messages: true
+
+    # StaffChat | Should console bypass `/scmute`?
+    bypass-mute: true
+
+
+
+# [ UltraStaffChatPro | StaffList Configuration ]
+stafflist:
+
+  # StaffList | Enabled
+  enabled: true
+
+  # StaffList | Hide vanished players
+  #  Requires PremiumVanish
+  hide-vanished: true
+
+  # StaffList | Sorting
+  sorting:
+
+    # StaffList Sorting | Mode
+    #  Options:
+    #   - GROUP     |  Sorts the StaffList by groups, ordering the groups by how they are listed.
+    #                  Placeholders: {group_display}
+    #   - SERVER    |  Sorts the StaffList by server name, from A-Z (Proxy only)
+    #   - USERNAME  |  Sorts the StaffList by username, from A-Z
+    #   - DISABLED  |  Disables sorting, users will be added to the StaffList as returned by the server
+    mode: "GROUP"
+
+    # StaffList Sorting | Groups
+    #  This is only used if `mode` is set to "GROUP"
+    groups:
+      owner:
+        display: "&cOwners"
+        permission: "staffchat.group.owner"
+      admin:
+        display: "&4Administrators"
+        permission: "staffchat.group.admin"
+      moderator:
+        display: "&cModerators"
+        permission: "staffchat.group.moderator"
+      helper:
+        display: "&eHelpers"
+        permission: "staffchat.group.helper"
+
+
+
+# [ UltraStaffChatPro | MultiChannel Configuration ]
+multichannel:
+
+  # MultiChannel | Enabled
+  enabled: true
+
+  # MultiChannel | Channels
+  channels:
+
+    # Helper Chat (Example channel)
+    #  This key is used as the main command for the channel.
+    helperchat:
+
+      # MultiChannel | Command aliases
+      #  Set to [] to disable all aliases. Remove line to remove alias.
+      aliases:
+        chat:
+          - "hc"
+          - "helperstaffchat"
+        toggle:
+          - "hctoggle"
+        mute:
+          - "hcmute"
+        global-mute:
+          - "mutehc"
+          - "hcglobalmute"
+
+      # MultiChannel | Prefix
+      prefix:
+
+        # Prefix | Enabled
+        enabled: true
+
+        # Prefix | Chat message prefix
+        prefix: "%"
+
+      # MultiChannel | Messages
+      messages:
+
+        # Message | Format
+        #  Placeholders: {message}
+        format: "&7[&e&lH&7] &e{player}&7: &c{message}"
+
+        # Message | No permission
+        no-permission: "&cNo permission."
+
+        # Message | Command usage
+        usage: "&cUsage: /hc <message>"
+
+      # MultiChannel | Toggle
+      toggle:
+        enabled: true
+        messages:
+          toggled-on: "&7[&e&lH&7] &aToggled on."
+          toggled-off: "&7[&e&lH&7] &cToggled off."
+
+      # MultiChannel | Mute
+      mute:
+        enabled: true
+        hide-events: false
+        messages:
+          muted: "&7[&e&lH&7] &cMuted."
+          unmuted: "&7[&e&lH&7] &aUnmuted."
+
+      # MultiChannel | Global Mute
+      global-mute:
+        enabled: true
+        messages:
+          blocked: "&cHelperChat is currently muted."
+          muted: "&7[&e&lH&7] &cHelperChat was muted by {player}"
+          unmuted: "&7[&e&lH&7] &aHelperChat was unmuted by {player}"
+
+      # MultiChannel | Join messages
+      join:
+        enabled: true
+        message: "&7[&e&lH&7] &e{player} &7joined"
+
+      # MultiChannel | Switch messages
+      #  Placeholders: {from}, {to}
+      switch:
+        enabled: true
+        message: "&7[&e&lH&7] &e{player} &7switched from &c{from} &7to &a{to}"
+
+      # MultiChannel | Leave messages
+      leave:
+        enabled: true
+        message: "&7[&e&lH&7] &e{player} &7left"
+
+      # MultiChannel | Formatting codes
+      #  Should players be able to use formatting codes in messages?
+      formatting:
+        enabled: true
+
+      # MultiChannel | Console
+      console:
+
+        # MultiChannel | Should console receive messages?
+        receive-messages: true
+
+        # MultiChannel | Should console bypass `/hcmute`?
+        bypass-mute: true
+
+      # MultiChannel | Discord
+      #  This is only used if the Discord integration is enabled.
+      discord:
+
+        # Discord | Enabled
+        #  Should the Discord integration be used for this channel?
+        enabled: false
+
+        # Discord | Guild ID (Server ID)
+        guild: "XXXXXXXXXXXXXXXXXX"
+
+        # Discord | Channel ID
+        channel: "XXXXXXXXXXXXXXXXXX"
+
+        # Discord | Webhook configuration
+        #  This is only used if the Discord integration is configured to use a webhook.
+        webhook:
+
+          # Webhook | Avatar
+          #  Placeholders: {player}, {uuid}
+          avatar: "https://crafatar.com/avatars/{uuid}.png"
+
+          # Webhook | Username
+          username: "{player}"
+
+          # Webhook | URL
+          url: "https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+        # Discord | MultiChannel message format
+        message:
+          # Discord | Mode
+          #  Options: "EMBED", "TEXT"
+          mode: "EMBED"
+
+          # Discord | Embed
+          #  Only needed if 'mode' is set to "EMBED"
+          embed:
+            author:
+              name: "{player}"
+              url: ""
+              image: "https://crafatar.com/avatars/{uuid}.png"
+            title:
+              text: ""
+              url: ""
+            description: "{message}"
+            color: "#55FFFF"
+            footer:
+              text: "UltraStaffChatPro"
+              icon: ""
+            image: ""
+            thumbnail: ""
+            fields: {} # To use fields, remove '{}' here and uncomment the following lines.
+          #          1:
+          #            name: "Field 1"
+          #            value: "Test"
+          #            inline: true
+          #          2:
+          #            name: "Field 2"
+          #            value: "Test"
+          #            inline: true
+
+          # Discord | Text
+          #  Only needed if 'mode' is set to "TEXT"
+          text: "**{player}**: {message}"
+
+        # Discord | MultiChannel join message
+        join:
+          # Discord | Mode
+          #  Options: "EMBED", "TEXT"
+          mode: "EMBED"
+
+          # Discord | Embed
+          #  Only needed if 'mode' is set to "EMBED"
+          embed:
+            author:
+              name: "{player}"
+              url: ""
+              image: "https://crafatar.com/avatars/{uuid}.png"
+            title:
+              text: ""
+              url: ""
+            description: "{player} joined the server"
+            color: "#55FFFF"
+            footer:
+              text: "UltraStaffChatPro"
+              icon: ""
+            image: ""
+            thumbnail: ""
+            fields: {} # To use fields, remove '{}' here and uncomment the following lines.
+          #          1:
+          #            name: "Field 1"
+          #            value: "Test"
+          #            inline: true
+          #          2:
+          #            name: "Field 2"
+          #            value: "Test"
+          #            inline: true
+
+          # Discord | Text
+          #  Only needed if 'mode' is set to "TEXT"
+          text: "[**+**] {player}"
+
+        # Discord | MultiChannel switch message
+        #  Placeholders: {from}, {to}
+        switch:
+          # Discord | Mode
+          #  Options: "EMBED", "TEXT"
+          mode: "EMBED"
+
+          # Discord | Embed
+          #  Only needed if 'mode' is set to "EMBED"
+          embed:
+            author:
+              name: "{player}"
+              url: ""
+              image: "https://crafatar.com/avatars/{uuid}.png"
+            title:
+              text: ""
+              url: ""
+            description: "{player} switched from {from} to {to}"
+            color: "#55FFFF"
+            footer:
+              text: "UltraStaffChatPro"
+              icon: ""
+            image: ""
+            thumbnail: ""
+            fields: {} # To use fields, remove '{}' here and uncomment the following lines.
+          #          1:
+          #            name: "Field 1"
+          #            value: "Test"
+          #            inline: true
+          #          2:
+          #            name: "Field 2"
+          #            value: "Test"
+          #            inline: true
+
+          # Discord | Text
+          #  Only needed if 'mode' is set to "TEXT"
+          #  Placeholders: {from}, {to}
+          text: "{player} switched from {from} to {to}"
+
+        # Discord | MultiChannel leave message
+        leave:
+          # Discord | Mode
+          #  Options: "EMBED", "TEXT"
+          mode: "EMBED"
+
+          # Discord | Embed
+          #  Only needed if 'mode' is set to "EMBED"
+          embed:
+            author:
+              name: "{player}"
+              url: ""
+              image: "https://crafatar.com/avatars/{uuid}.png"
+            title:
+              text: ""
+              url: ""
+            description: "{player} left the server"
+            color: "#55FFFF"
+            footer:
+              text: "UltraStaffChatPro"
+              icon: ""
+            image: ""
+            thumbnail: ""
+            fields: {} # To use fields, remove '{}' here and uncomment the following lines.
+          #          1:
+          #            name: "Field 1"
+          #            value: "Test"
+          #            inline: true
+          #          2:
+          #            name: "Field 2"
+          #            value: "Test"
+          #            inline: true
+
+          # Discord | Text
+          #  Only needed if 'mode' is set to "TEXT"
+          text: "[**-**] {player}"
+
+        # Discord | MultiChannel global mute message
+        global-mute:
+
+          # Discord | MultiChannel global mute ON message
+          muted:
+            # Discord | Mode
+            #  Options: "EMBED", "TEXT"
+            mode: "EMBED"
+
+            # Discord | Embed
+            #  Only needed if 'mode' is set to "EMBED"
+            embed:
+              author:
+                name: "{player}"
+                url: ""
+                image: "https://crafatar.com/avatars/{uuid}.png"
+              title:
+                text: ""
+                url: ""
+              description: "{player} has globally muted helperchat"
+              color: "#55FFFF"
+              footer:
+                text: "UltraStaffChatPro"
+                icon: ""
+              image: ""
+              thumbnail: ""
+              fields: {} # To use fields, remove '{}' here and uncomment the following lines.
+            #           1:
+            #             name: "Field 1"
+            #             value: "Test"
+            #             inline: true
+            #           2:
+            #             name: "Field 2"
+            #             value: "Test"
+            #             inline: true
+
+            # Discord | Text
+            #  Only needed if 'mode' is set to "TEXT"
+            text: "{player} has globally muted helperchat"
+
+          # Discord | MultiChannel global mute OFF message
+          unmuted:
+            # Discord | Mode
+            #  Options: "EMBED", "TEXT"
+            mode: "EMBED"
+
+            # Discord | Embed
+            #  Only needed if 'mode' is set to "EMBED"
+            embed:
+              author:
+                name: "{player}"
+                url: ""
+                image: "https://crafatar.com/avatars/{uuid}.png"
+              title:
+                text: ""
+                url: ""
+              description: "{player} has globally unmuted helperchat"
+              color: "#55FFFF"
+              footer:
+                text: "UltraStaffChatPro"
+                icon: ""
+              image: ""
+              thumbnail: ""
+              fields: {} # To use fields, remove '{}' here and uncomment the following lines.
+            #           1:
+            #             name: "Field 1"
+            #             value: "Test"
+            #             inline: true
+            #           2:
+            #             name: "Field 2"
+            #             value: "Test"
+            #             inline: true
+
+            # Discord | Text
+            #  Only needed if 'mode' is set to "TEXT"
+            text: "{player} has globally unmuted helperchat"
+
+      # MultiChannel | Permissions
+      permissions:
+        talk: "helperchat.talk"
+        read: "helperchat.read"
+        toggle: "helperchat.toggle"
+        mute: "helperchat.mute"
+        global-mute:
+          toggle: "helperchat.global-mute"
+          bypass: "helperchat.global-mute.bypass"
+          read: "helperchat.global-mute.read" # Permission required to receive global mute message.
+        join:
+          send: "helperchat.join"
+          read: "helperchat.join.read"
+        switch:
+          send: "helperchat.switch"
+          read: "helperchat.switch.read"
+        leave:
+          send: "helperchat.leave"
+          read: "helperchat.leave.read"
+
+
+# [ UltraStaffChatPro | Permission Configuration ]
+permission:
+
+  # Permission | StaffChat
+  staffchat:
+    talk: "staffchat.talk"
+    read: "staffchat.read"
+    toggle: "staffchat.toggle"
+    mute: "staffchat.mute"
+    global-mute:
+      toggle: "staffchat.global-mute"
+      bypass: "staffchat.global-mute.bypass"
+      read: "staffchat.global-mute.read" # Permission required to receive the global mute broadcast.
+
+  # Permission | StaffList
+  stafflist:
+    view: "staffchat.list.view"
+    view-vanished: "staffchat.list.view-vanished"
+    display: "staffchat.list"
+
+  # Permission | Events
+  event:
+    afk:
+      send: "staffchat.afk"
+      read: "staffchat.afk.read"
+    join:
+      send: "staffchat.join"
+      read: "staffchat.join.read"
+    switch:
+      send: "staffchat.switch"
+      read: "staffchat.switch.read"
+    leave:
+      send: "staffchat.leave"
+      read: "staffchat.leave.read"
+
+  # Permission | UltraStaffChatPro
+  ultrastaffchatpro:
+    update: "ultrastaffchatpro.update" # Permission required to receive update notifications.
+    reload: "ultrastaffchatpro.reload"
+    debug: "ultrastaffchatpro.debug"
+
+
+
+# [ UltraStaffChatPro | Command Configuration ]
+
+# Command | Aliases
+aliases:
+
+  # Aliases | StaffChat (/staffchat)
+  staffchat:
+    - "sc"
+    - "staffc"
+    - "schat"
+
+  # Aliases | StaffChat Toggle (/sctoggle)
+  sctoggle:
+    - "staffchattoggle"
+
+  # Aliases | StaffChat Mute (/scmute)
+  scmute:
+    - "staffchatmute"
+
+  # Aliases | StaffChat Global Mute (/mutesc)
+  mutesc:
+    - "scglobalmute"
+
+  # Aliases | StaffChat AFK (/scafk)
+  scafk:
+    - "staffchatafk"
+
+  # Aliases | StaffList (/stafflist)
+  stafflist:
+    - "staff"
+
+
+
+# [ UltraStaffChatPro | Advanced Configuration ]
+advanced:
+
+  # Advanced | Update Notifications enabled
+  #  This is recommended if you want to keep USCP up-to-date!
+  update-notifications: true
+
+
+
+# [ UltraStaffChatPro | System Configuration ]
+
+# System | Configuration file version
+#  Used for making sure this file is up-to-date. - Do not change this!
+version: 12
+
+
+# - You're done!
+# Thank you for purchasing and using UltraStaffChatPro!
+# If you have any ideas for UltraStaffChatPro, please suggest them at https://feedback.hypera.dev/

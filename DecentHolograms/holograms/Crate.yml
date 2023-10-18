@@ -1,0 +1,16 @@
+location: orbitalsetup:-384.230:66.534:79.489
+enabled: true
+display-range: 48
+update-range: 48
+update-interval: 20
+facing: 0.0
+down-origin: false
+pages:
+- lines:
+  - content: '&b&lDaily Crate'
+    height: 0.3
+  - content: '&cU can open this crate each day'
+    height: 0.3
+  - content: '&5Rarity: ★★★☆☆'
+    height: 0.3
+  actions: {}

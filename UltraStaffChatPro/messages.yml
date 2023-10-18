@@ -1,0 +1,435 @@
+#     __  ______             _____ __        ________________          __  ____
+#    / / / / / /__________ _/ ___// /_____ _/ __/ __/ ____/ /_  ____ _/ /_/ __ \_________
+#   / / / / / __/ ___/ __ `/\__ \/ __/ __ `/ /_/ /_/ /   / __ \/ __ `/ __/ /_/ / ___/ __ \
+#  / /_/ / / /_/ /  / /_/ /___/ / /_/ /_/ / __/ __/ /___/ / / / /_/ / /_/ ____/ /  / /_/ /
+#  \____/_/\__/_/   \__,_//____/\__/\__,_/_/ /_/  \____/_/ /_/\__,_/\__/_/   /_/   \____/
+#
+#   UltraStaffChatPro v2.0.17 - messages.yml - Message configuration file
+#   Copyright (c) 2022-present Joshua Sing <joshua@hypera.dev>. All Rights Reserved.
+#
+#   Helpful Links
+#    - Support        |  https://discord.hypera.dev/
+#    - Documentation  |  https://wiki.hypera.dev/ultrastaffchatpro/
+#
+#   User placeholders
+#    - {player}           |  Player's username
+#    - {uuid}             |  Player's unique id
+#    - {server}           |  Player server's name (Proxy only)
+#    - {afk}              |  Player AFK status
+#    - {playtime}         |  Player's online time
+#    - {playtime_server}  |  Player's server online time (Resets when they switch server)
+#
+#   User integration placeholders
+#    - LuckPerms          |  {lp_prefix}, {lp_group}, {lp_suffix}, {lp_<meta-key>}
+#    - Ultra Permissions  |  {up_prefix}, {up_suffix}
+#    - PremiumVanish      |  {vanish}
+#    - RedisBungee        |  {proxy_id}
+#
+#   RGB Support
+#    - RGB Format  |  `&#aabbcc` (eg. `&#2155cc`)
+#
+
+
+# [ UltraStaffChatPro | General Configuration ]
+
+# General | No permission message
+no-permission: "&cNo permission."
+
+# General | In-game only message
+in-game-only: "&cThis command can only be used in-game."
+
+
+
+# [ UltraStaffChatPro | StaffChat Configuration ]
+staffchat:
+
+  # StaffChat | Format
+  #  Placeholders: {message}
+  format: "&7[&b&lS&7] &b{player}&7: &f{message}"
+
+  # StaffChat | Command usage
+  usage: "&cUsage: /sc <message>"
+
+  # StaffChat | Toggle messages
+  toggle:
+    toggled-on: "&7[&b&lS&7] &aToggled on."
+    toggled-off: "&7[&b&lS&7] &cToggled off."
+
+  # StaffChat | Mute messages
+  mute:
+    muted: "&7[&b&lS&7] &cMuted."
+    unmuted: "&7[&b&lS&7] &aUnmuted."
+
+  # StaffChat | Global Mute messages
+  global-mute:
+    blocked: "&cStaffChat is currently muted."
+    muted: "&7[&b&lS&7] &cStaffChat was muted by {player}"
+    unmuted: "&7[&b&lS&7] &aStaffChat was unmuted by {player}"
+
+  # StaffChat | AFK messages
+  afk:
+    afk: "&7[&b&lS&7] &c{player} &7is now &c&lAFK"
+    no-longer-afk: "&7[&b&lS&7] &a{player} &7is no longer &c&lAFK"
+
+  # StaffChat | Join message
+  join: "&7[&a&l+&7] &a{player}"
+
+  # StaffChat | Switch message
+  #  Placeholders: {from}, {to}
+  switch: "&7[&b&lS&7] &b{player} &7switched from &c{from} &7to &a{to}"
+
+  # StaffChat | Leave message
+  leave: "&7[&c&l-&7] &c{player}"
+
+  # StaffChat | Discord
+  #  This is only used if the Discord integration is enabled.
+  discord:
+
+    # Discord | StaffChat message format
+    message:
+      # Discord | Mode
+      #  Options: "EMBED", "TEXT"
+      mode: "EMBED"
+
+      # Discord | Embed
+      #  Only needed if 'mode' is set to "EMBED"
+      embed:
+        author:
+          name: "{player}"
+          url: ""
+          image: "https://crafatar.com/avatars/{uuid}.png"
+        title:
+          text: ""
+          url: ""
+        description: "{message}"
+        color: "#55FFFF"
+        footer:
+          text: "UltraStaffChatPro"
+          icon: ""
+        image: ""
+        thumbnail: ""
+        fields: {} # To use fields, remove '{}' here and uncomment the following lines.
+#          1:
+#            name: "Field 1"
+#            value: "Test"
+#            inline: true
+#          2:
+#            name: "Field 2"
+#            value: "Test"
+#            inline: true
+
+      # Discord | Text
+      #  Only needed if 'mode' is set to "TEXT"
+      text: "**{player}**: {message}"
+
+    # Discord | StaffChat join message
+    join:
+      # Discord | Mode
+      #  Options: "EMBED", "TEXT"
+      mode: "EMBED"
+
+      # Discord | Embed
+      #  Only needed if 'mode' is set to "EMBED"
+      embed:
+        author:
+          name: "{player}"
+          url: ""
+          image: "https://crafatar.com/avatars/{uuid}.png"
+        title:
+          text: ""
+          url: ""
+        description: "{player} joined the server"
+        color: "#55FFFF"
+        footer:
+          text: "UltraStaffChatPro"
+          icon: ""
+        image: ""
+        thumbnail: ""
+        fields: {} # To use fields, remove '{}' here and uncomment the following lines.
+#          1:
+#            name: "Field 1"
+#            value: "Test"
+#            inline: true
+#          2:
+#            name: "Field 2"
+#            value: "Test"
+#            inline: true
+
+      # Discord | Text
+      #  Only needed if 'mode' is set to "TEXT"
+      text: "[**+**] {player}"
+
+    # Discord | StaffChat switch message
+    #  Placeholders: {from}, {to}
+    switch:
+      # Discord | Mode
+      #  Options: "EMBED", "TEXT"
+      mode: "EMBED"
+
+      # Discord | Embed
+      #  Only needed if 'mode' is set to "EMBED"
+      embed:
+        author:
+          name: "{player}"
+          url: ""
+          image: "https://crafatar.com/avatars/{uuid}.png"
+        title:
+          text: ""
+          url: ""
+        description: "{player} switched from {from} to {to}"
+        color: "#55FFFF"
+        footer:
+          text: "UltraStaffChatPro"
+          icon: ""
+        image: ""
+        thumbnail: ""
+        fields: {} # To use fields, remove '{}' here and uncomment the following lines.
+#          1:
+#            name: "Field 1"
+#            value: "Test"
+#            inline: true
+#          2:
+#            name: "Field 2"
+#            value: "Test"
+#            inline: true
+
+      # Discord | Text
+      #  Only needed if 'mode' is set to "TEXT"
+      #  Placeholders: {from}, {to}
+      text: "{player} switched from {from} to {to}"
+
+    # Discord | StaffChat leave message
+    leave:
+      # Discord | Mode
+      #  Options: "EMBED", "TEXT"
+      mode: "EMBED"
+
+      # Discord | Embed
+      #  Only needed if 'mode' is set to "EMBED"
+      embed:
+        author:
+          name: "{player}"
+          url: ""
+          image: "https://crafatar.com/avatars/{uuid}.png"
+        title:
+          text: ""
+          url: ""
+        description: "{player} left the server"
+        color: "#55FFFF"
+        footer:
+          text: "UltraStaffChatPro"
+          icon: ""
+        image: ""
+        thumbnail: ""
+        fields: {} # To use fields, remove '{}' here and uncomment the following lines.
+#          1:
+#            name: "Field 1"
+#            value: "Test"
+#            inline: true
+#          2:
+#            name: "Field 2"
+#            value: "Test"
+#            inline: true
+
+      # Discord | Text
+      #  Only needed if 'mode' is set to "TEXT"
+      text: "[**-**] {player}"
+
+    # Discord | StaffChat AFK messages
+    afk:
+
+      # Discord | StaffChat AFK ON message
+      afk:
+        # Discord | Mode
+        #  Options: "EMBED", "TEXT"
+        mode: "EMBED"
+
+        # Discord | Embed
+        #  Only needed if 'mode' is set to "EMBED"
+        embed:
+          author:
+            name: "{player}"
+            url: ""
+            image: "https://crafatar.com/avatars/{uuid}.png"
+          title:
+            text: ""
+            url: ""
+          description: "{player} is now AFK"
+          color: "#55FFFF"
+          footer:
+            text: "UltraStaffChatPro"
+            icon: ""
+          image: ""
+          thumbnail: ""
+          fields: {} # To use fields, remove '{}' here and uncomment the following lines.
+#           1:
+#             name: "Field 1"
+#             value: "Test"
+#             inline: true
+#           2:
+#            name: "Field 2"
+#            value: "Test"
+#            inline: true
+
+        # Discord | Text
+        #  Only needed if 'mode' is set to "TEXT"
+        text: "{player} is now AFK"
+
+      # Discord | StaffChat AFK OFF messages
+      not-afk:
+        # Discord | Mode
+        #  Options: "EMBED", "TEXT"
+        mode: "EMBED"
+
+        # Discord | Embed
+        #  Only needed if 'mode' is set to "EMBED"
+        embed:
+          author:
+            name: "{player}"
+            url: ""
+            image: "https://crafatar.com/avatars/{uuid}.png"
+          title:
+            text: ""
+            url: ""
+          description: "{player} is no longer AFK"
+          color: "#55FFFF"
+          footer:
+            text: "UltraStaffChatPro"
+            icon: ""
+          image: ""
+          thumbnail: ""
+          fields: {} # To use fields, remove '{}' here and uncomment the following lines.
+#           1:
+#             name: "Field 1"
+#             value: "Test"
+#             inline: true
+#           2:
+#             name: "Field 2"
+#             value: "Test"
+#             inline: true
+
+        # Discord | Text
+        #  Only needed if 'mode' is set to "TEXT"
+        text: "{player} is no longer AFK"
+
+    # Discord | StaffChat global mute message
+    global-mute:
+
+      # Discord | StaffChat global mute ON message
+      muted:
+        # Discord | Mode
+        #  Options: "EMBED", "TEXT"
+        mode: "EMBED"
+
+        # Discord | Embed
+        #  Only needed if 'mode' is set to "EMBED"
+        embed:
+          author:
+            name: "{player}"
+            url: ""
+            image: "https://crafatar.com/avatars/{uuid}.png"
+          title:
+            text: ""
+            url: ""
+          description: "{player} has globally muted staffchat"
+          color: "#55FFFF"
+          footer:
+            text: "UltraStaffChatPro"
+            icon: ""
+          image: ""
+          thumbnail: ""
+          fields: {} # To use fields, remove '{}' here and uncomment the following lines.
+#           1:
+#             name: "Field 1"
+#             value: "Test"
+#             inline: true
+#           2:
+#             name: "Field 2"
+#             value: "Test"
+#             inline: true
+
+        # Discord | Text
+        #  Only needed if 'mode' is set to "TEXT"
+        text: "{player} has globally muted staffchat"
+
+      # Discord | StaffChat global mute OFF message
+      unmuted:
+        # Discord | Mode
+        #  Options: "EMBED", "TEXT"
+        mode: "EMBED"
+
+        # Discord | Embed
+        #  Only needed if 'mode' is set to "EMBED"
+        embed:
+          author:
+            name: "{player}"
+            url: ""
+            image: "https://crafatar.com/avatars/{uuid}.png"
+          title:
+            text: ""
+            url: ""
+          description: "{player} has globally unmuted staffchat"
+          color: "#55FFFF"
+          footer:
+            text: "UltraStaffChatPro"
+            icon: ""
+          image: ""
+          thumbnail: ""
+          fields: {} # To use fields, remove '{}' here and uncomment the following lines.
+#           1:
+#             name: "Field 1"
+#             value: "Test"
+#             inline: true
+#           2:
+#             name: "Field 2"
+#             value: "Test"
+#             inline: true
+
+        # Discord | Text
+        #  Only needed if 'mode' is set to "TEXT"
+        text: "{player} has globally unmuted staffchat"
+
+
+# [ UltraStaffChatPro | StaffList Configuration ]
+stafflist:
+
+  # StaffList | Format
+  #  Placeholders: {count} (Online staff member count), {total} (Total players online)
+  format:
+
+    # Format | Header
+    #  Placeholders: {count}, {total}
+    #  To remove all lines, replace with 'header: []'
+    header:
+      - "&b&lOnline staff members &7({count}):"
+
+    # Format | Lines
+    #  Everything after `REPEAT:` will be repeated for each player in that group or server.
+    #  Proxy placeholders: {server_count}, {server_total}
+    #  To remove all lines, replace with 'lines: []'
+    lines:
+      - "&r "
+      - " &r {group_display}"
+      - "REPEAT: &r &r &7- {afk}{player} - {playtime_server}"
+
+    # Format | Footer
+    #  Placeholders: {count}, {total}
+    #  To remove all lines, replace with 'footer: []'
+    footer:
+      - "&r "
+
+  # StaffList | No staff members online message
+  no-staff: "&cNo staff members are currently online."
+
+
+
+# [ UltraStaffChatPro | System Configuration ]
+
+# System | Configuration file version
+#  Used for making sure this file is up-to-date. - Do not change this!
+version: 12
+
+
+# - You're done!
+# Thank you for purchasing and using UltraStaffChatPro!
+# If you have any ideas for UltraStaffChatPro, please suggest them at https://feedback.hypera.dev/

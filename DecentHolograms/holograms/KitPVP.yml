@@ -1,0 +1,14 @@
+location: world:37.504:117.475:-39.636
+enabled: true
+display-range: 48
+update-range: 48
+update-interval: 20
+facing: 0.0
+down-origin: false
+pages:
+- lines:
+  - content: '&b&lKitPVP Server'
+    height: 0.3
+  - content: '&1&l| &3Click to connect &1&l|'
+    height: 0.3
+  actions: {}

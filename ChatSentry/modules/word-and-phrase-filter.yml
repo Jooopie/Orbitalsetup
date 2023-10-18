@@ -1,0 +1,305 @@
+# --------------------------------------------------------------------------------------
+# Intelligent Word & Phrase Filter:
+# Hyper intelligently detects swears configured blocked words or phrases (and words/phrases similar to those on the list) from being said in chat, commands, signs, anvils, and books (additional check contexts can be disabled).
+# Bypass permission: "chatsentry.wordandphrasefilter.bypass"
+# --------------------------------------------------------------------------------------
+
+# If "process-commands" is true in config.yml, this module will filter through all commands (apart from ignored commands on the list below) (of players without bypass permission or op)
+# If "process-signs" is true in config.yml, this module will filter through text written on signs (of players without bypass permission or op)
+# If "process-anvils" is true in config.yml, this module will filter through items renamed in anvils (of players without bypass permission or op)
+# If "process-books" is true in config.yml, this module will filter through writing in books (of players without bypass permission or op)
+
+censor:
+  # Should the filter censor detected messages? When set to false, detected messages will be blocked entirely.
+  # Due to the complexity of this options integration with the native filter, it's not always able to modify the message properly. If so, the message will be blocked completely instead.
+  # Note that this uses significantly more resources compared to just blocking detected messages entirely, but it shouldn't pose an issue unless you have extremely limited processing power available
+  enabled: true
+  # When set to false, the block message will only be sent if the message could not be censored, or if the entry had a nocensor:: modifier
+  send-block-message-when-censored: false
+  # Makes the censor leave the first two letters uncensored
+  partially-censor: true
+  # Since the filter can block long variations of blocked words/phrases, censored words/phrases might end up really spammy looking. This option will shorten the censored result if it's excessively long.
+  # Ex. "What the *******************" -> becomes -> "What the *****"
+  shorten: true
+  # The character used to censor messages
+  censor-char: "*"
+  # Should Word & Phrase Filter Auto Punisher warnings apply if the message was censored? Has no effect if Auto Punisher warnings for the WAPF are disabled, or if the entire Auto Punisher module is disabled. This in conjunction with the nocensor modifier allows you to apply warnings to players who attempt to use very vulgar language, but apply no warnings to people sending basic swears/other blocked entries that are censored
+  autowarn-when-censored: false
+  # Should the module send Admin Notifier notifications when a message is censored? Set to false to only get notifications only when the censor fails to censor a message and has to block it entirely, or a nocensor:: entry is triggered. Requires the Admin Notifier module to be enabled to take effect.
+  notify-when-censored: true
+
+# To block variants and attempts to bypass the filter, the module will check for similar words & phrases that are on the blocked-words-and-phrases list in players messages and commands.
+# The value below is how similar other words/phrases must be to a word/phrase on the blacklist to be considered an attempt to exploit / bypass the filter.
+# 1.0 = exactly as one of the phrases on the list (excluding character case)
+# 0.0 = not exact (this eliminates the purpose of the similarity checker)
+block-similarity-threshold: 0.82
+
+# When enabled, the filter will, based off the below charset process lookalike numbers and symbols as letters to detect players substituting letters with numbers numbers to bypass the filter. Ex. @ = A, # = H, 1 = I, 3 = E, etc.
+# Not recommended to use along with the censor as it can leave parts of the visible message substituted. Enable if you're not using the censor or want extra protection anyway
+substitution-intelligence: false
+
+# Below is the substitutions the plugin will process. Please note that adding excessive amounts of substitutions will raise false positive rates. For the best results, it's recommended to try and keep this list pretty short and around or under ~12 substitutions.
+substitution-intelligence-charset:
+- "0 (->) O"
+- "1 (->) I"
+- "2 (->) R"
+- "3 (->) E"
+- "4 (->) A"
+- "@ (->) A"
+- "< (->) C"
+- "# (->) H"
+- "$ (->) S"
+- "+ (->) T"
+- "( (->) C"
+- "{ (->) C"
+- "| (->) L"
+
+# Should detections found in players usernames be ignored?
+ignore-usernames: true
+
+# When enabled, the filter will scan for existing commands from other plugins and allow them to go through, even if they are falsely detected due to being similar to a blocked word
+# Keeping this enabled is highly recommended, as it can prevent a lot of false positives depending on how many commands your server has.
+# Note that this option will only work if "process-commands" is true in config.yml
+ignore-detected-registered-commands: true
+
+# Below is the blacklist of words & phrases that will be blocked from being said in chat & commands.
+# Character case in the below list does not matter. Case variants are automatically checked by the plugin on all entries.
+
+# Set to "blocked-words-and-phrases: []" to have an empty list.
+
+# For preconfigured (English) lists of swears, slurs, etc. see here:
+# https://wiki.chatsentry.xyz/misc-info/preset-word-lists
+
+# Block list guide: HIGHLY RECOMMENDED TO READ TO PREVENT FALSE DETECTION ISSUES, OR USE THE PRESET LISTS !
+# https://wiki.chatsentry.xyz/word-and-phrase-filter-block-list-guide
+
+blocked-words-and-phrases:
+- "exact::anus"
+- "exactcontains::arrse"
+- "ass fucker"
+- "assfukka"
+- "exactcontains::asshole"
+- "asswhole"
+- "exactcontains::ballbag"
+- "exactcontains::ballsack"
+- "bellend"
+- "bestial"
+- "bestiality"
+- "biatch"
+- "blowjob"
+- "boiolas"
+- "exactcontains::bollock"
+- "exactcontains::boner"
+- "buceta"
+- "bunny fucker"
+- "buttmunch"
+- "buttplug"
+- "cocksucker"
+- "carpet muncher"
+- "exact::chink"
+- "exact::clit"
+- "clitoris"
+- "cockhead"
+- "cockmunch"
+- "exact::cum"
+- "exact::cummer"
+- "exact::cumming"
+- "exact::cums"
+- "exactcontains::cumshot"
+- "cunilingus"
+- "cuntlicker"
+- "cyberfuck"
+- "exactcontains::dick"
+- "exactcontains::damn"
+- "dickhead"
+- "dildo"
+- "exact::dink"
+- "exact::dinks"
+- "dirsa"
+- "dogfucker"
+- "exact::dogging"
+- "donkeyribber"
+- "exactcontains::doosh"
+- "duche"
+- "ejaculate"
+- "ejaculated"
+- "ejaculates"
+- "ejaculating"
+- "ejaculatings"
+- "ejaculation"
+- "ejakulate"
+- "exact::anal"
+- "exact::arse"
+- "exact::ass"
+- "exactcontains::bitch"
+- "exactcontains::cock"
+- "exactcontains::cocks"
+- "exactcontains::coon"
+- "exactcontains::cunt"
+- "exactcontains::cunts"
+- "exactcontains::dyke"
+- "exactcontains::fag"
+- "exactcontains::fook"
+- "exactcontains::fuck"
+- "exact::hoar"
+- "exact::kum"
+- "exact::kums"
+- "exact::pawn"
+- "exactcontains::pricks"
+- "exact::twat"
+- "faggitt"
+- "faggot"
+- "fagots"
+- "exactcontains::fags"
+- "exactcontains::fagz"
+- "exactcontains::nigga"
+- "exactcontains::niggah"
+- "exactcontains::niggas"
+- "exactcontains::nigger"
+- "exactcontains::nigz"
+- "exactcontains::nigs"
+- "nignog"
+- "niglet"
+- "exact::felching"
+- "fellate"
+- "fellatio"
+- "fingerfuck"
+- "fingerfucks"
+- "fistfuck"
+- "fuuuckkk"
+- "exactcontains::fvck"
+- "fucking"
+- "fudgepacker"
+- "fukker"
+- "fukwhit"
+- "fukwit"
+- "gangbang"
+- "gaysex"
+- "exactcontains::hoare"
+- "horniest"
+- "exactcontains::horny"
+- "exactcontains::jack off"
+- "exactcontains::jerk off"
+- "exactcontains::jizz"
+- "exact::kawk"
+- "knobead"
+- "knobed"
+- "knobend"
+- "knobhead"
+- "knobjocky"
+- "knobjokey"
+- "exact::kock"
+- "kondum"
+- "exactcontains::kummer"
+- "exactcontains::kumming"
+- "kunilingus"
+- "labia"
+- "masterbation"
+- "masturbate"
+- "exact::mofo"
+- "mothafuck"
+- "mothafucka"
+- "motherfuck"
+- "motherfucker"
+- "motherfuckin"
+- "motherfucking"
+- "motherfuckings"
+- "motherfuckka"
+- "motherfucks"
+- "muthafecker"
+- "mutherfucker"
+- "nazi"
+- "exact::spick"
+- "exactcontains::kike"
+- "exact::paki"
+- "exact::ricey"
+- "currymuncher"
+- "golliwog"
+- "exact::wog"
+- "gringo"
+- "goyim"
+- "exactcontains::russki"
+- "exactcontains::beaner"
+- "exactcontains::beaners"
+- "exactcontains::beanerz"
+- "nobjocky"
+- "exactcontains::twink"
+- "exactcontains::nutsack"
+- "orgasm"
+- "exactcontains::penis"
+- "penisfucker"
+- "exactcontains::phonesex"
+- "pigfucker"
+- "exact::piss"
+- "exactcontains::pissed"
+- "pissflaps"
+- "exactcontains::pissing"
+- "exact::rape"
+- "exact::raped"
+- "exact::rapes"
+- "pornography"
+- "exact::porn"
+- "exact::porno"
+- "exactcontains::pube"
+- "pussies"
+- "pussy"
+- "rectum"
+- "exactcontains::retard"
+- "rimjaw"
+- "exactcontains::rimming"
+- "exactcontains::sadist"
+- "scrotum"
+- "exact::semen"
+- "exact::sex"
+- "exactcontains::shagger"
+- "exactcontains::shaggin"
+- "exactcontains::shagging"
+- "exactcontains::shemale"
+- "shitdick"
+- "exactcontains::shite"
+- "exactcontains::shitfuck"
+- "exactcontains::shithead"
+- "exactcontains::shit"
+- "exactcontains::shitter"
+- "exactcontains::skank"
+- "exact::slut"
+- "exact::smut"
+- "son of a bitch"
+- "exact::spac"
+- "exactcontains::spunk"
+- "testicle"
+- "titfuck"
+- "tittiefucker"
+- "titties"
+- "tittyfuck"
+- "titwank"
+- "exact::tit"
+- "exact::tits"
+- "twathead"
+- "exactcontains::vagina"
+- "exactcontains::viagra"
+- "exactcontains::wank"
+- "exact::whore"
+
+# Below is the whitelist of words & phrases that will under all circumstances be ignored by the filter.
+# Since similar words/phrases to the blacklisted words/phrases are detected, the below list functions to fix the plugin not allowing valid but close matching words/phrases on entries you have no modifiers on.
+# Similarity checking is not active on these entries & character case does not matter.
+# Set to "whitelisted-words-and-phrases: []" to have an empty list.
+whitelisted-words-and-phrases:
+- "alwaysAllowThisWord"
+- "always allow this phrase"
+
+# IMPORTANT: The below list will only work if "process-commands" is true in config.yml
+# The below list is which commands (including all arguments) the censor will not process.
+# Any nocensor:: entries will be respectively blocked
+# Make sure to only include base commands; don't add any command arguments. (spaces)
+# Set to "censor-whitelisted-commands: []" to have an empty list.
+censor-whitelisted-commands:
+- "/exampleIgnoredCommand"
+
+# IMPORTANT: The below list will only work if "process-commands" is true in config.yml
+# The below list is which commands (including all arguments) the module under all circumstances will not process.
+# Make sure to only include base commands; don't add any command arguments. (spaces)
+# Set to "whitelisted-commands: []" to have an empty list.
+whitelisted-commands:
+- "/exampleIgnoredCommand"
