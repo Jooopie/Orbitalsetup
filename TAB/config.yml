@@ -3,7 +3,7 @@ header-footer:
   enabled: true
   header:
   - <#FFFFFF>&m                                                </#FFFF00>
-  - '&b&lOrbital Studios'
+  - '&5&lPremier Studios'
   - ''
   - '&7Online players: &f%online%'
   - '&6Online staff: &e%staffonline%'
@@ -86,7 +86,7 @@ scoreboard:
   respect-other-plugins: true
   scoreboards:
     scoreboard1:
-      title: '&b&lOrbital Studios'
+      title: '&5&lPremier Studios'
       lines:
       - '&818/10/2023 12:18'
       - ''
@@ -97,12 +97,7 @@ scoreboard:
       - '&7Online: &f123123'
       - '&7Lobby: &f2'
       - ''
-      - '&b&lInformation:'
-      - '&7Claim: &f-'
-      - '&7Guild: &f-'
-      - '&7Money: &e$12345'
-      - ''
-      - '&eplay.orbitalstudios.com'
+      - '&eplay.premierstudios.com'
 layout:
   enabled: false
   direction: COLUMNS
