@@ -1,0 +1,93 @@
+title: '&7> &5&lServer Selector'
+rows: 4
+
+# sound: ITEM_ARMOR_EQUIP_GENERIC
+
+# How often the menu should be refreshed.
+# Settings this too low can have a performance impact.
+# update-interval: 100
+
+menu:
+
+  # Servers
+  20:
+    actions:
+      - 'message:&cSorry, you cannot connect to this server at the moment.'
+    server-name: survival
+    material: DIRT
+    hide-flags: true # hide attack damage info
+    title: '&a&lSurvival Server'
+    lore:
+      - '&2&l| &aThis is our'
+      - '&2&l| &aSurvival server'
+      - '&2&l| &aThe server is currently &coffline'
+
+    conditional:
+        # Override options defined above when the server is online
+      - type: server-online
+        actions:
+          - ''
+        material: GRASS_BLOCK
+        enchanted: true
+        title: '&a&lServer A'
+        lore:
+          - '&7There are {online} out of {max} players online.'
+          - '&fClick to connect'
+  22:
+    actions:
+      - 'message:&cSorry, you cannot connect to this server at the moment.'
+    server-name: kitpvp
+    material: WOODEN_SWORD
+    hide-flags: true # hide attack damage info
+    title: '&b&lKitPvP Server'
+    lore:
+      - '&1&l| &bThis is our'
+      - '&1&l| &bKitPVP server'
+      - '&1&l| &bThe server is currently &coffline'
+
+    conditional:
+        # Override options defined above when the server is online
+      - type: server-online
+        actions:
+          - ''
+        material: IRON_SWORD
+        enchanted: true
+        title: '&b&lServer B'
+        lore:
+          - '&7There are {online} out of {max} players online.'
+          - '&fClick to connect'
+
+  24:
+    actions:
+      - 'message:&cSorry, you cannot connect to this server at the moment.'
+    server-name: kitpvp
+    material: PACKED_MUD
+    hide-flags: true # hide attack damage info
+    title: '&e&lCreative Server'
+    lore:
+      - '&6&l| &eThis is our'
+      - '&6&l| &eCreative server'
+      - '&6&l| &eThe server is currently &coffline'
+
+    conditional:
+        # Override options defined above when the server is online
+      - type: server-online
+        actions:
+          - ''
+        material: BRICKS
+        enchanted: true
+        title: '&c&lServer C'
+        lore:
+          - '&7There are {online} out of {max} players online.'
+          - '&fClick to connect'
+
+  # This is just you
+  4:
+    actions:
+      - 'close'
+    material: 'head:self'
+    title: '&5Click to close'
+    
+  fill:
+    material: GRAY_STAINED_GLASS_PANE
+    title: ' '

@@ -1,0 +1,35 @@
+# Note when making changes to command names without restarting the server:
+#
+# /ssx reload does not reload command properties (command name, aliases, 
+# description, usage). It does reload actions and permissions.
+#
+# /ssx reloadcommands loads new commands. If you change a command name or add
+# a new command, you will be able to use it with the new command name. The old
+# command will still work until the server is restarted. Reloading aliases, 
+# command description and usage is not supported. Restart the server.
+
+
+
+# Actions to perform when the command is executed
+actions:
+  - 'openmenu:serverselector' # Open default menu (config file in ../menu/serverselector.yml)
+
+# Require the permission ssx.command.<command> to run the command
+# This command is called 'servers' so the permission ssx.command.servers would be required.
+permission: false
+
+aliases:
+ - 'menu'
+ - 'server'
+
+
+
+
+# -------------------- Advanced -------------------- #
+
+description: 'Opens the servers menu'
+usage: "/<command>"
+
+# Cooldown in milliseconds. Not recommended to set lower than 500ms.
+cooldown: 500
+

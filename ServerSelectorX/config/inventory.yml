@@ -1,0 +1,40 @@
+# Clear inventory before adding items on join? 
+# This may not work with other plugins that also add items on join.
+# Players with the permission ssx.clearinvbypass will not get their inventory cleared.
+clear-inv: true
+
+# Cancel item dropping for players that do not have the permission ssx.drop
+cancel-item-drop: true
+
+# Cancel item move for players that do not have the permission ssx.move
+# this includes swapping items between hands for 1.9+
+cancel-item-move: true
+
+# Apply 'cancel-item-drop' and 'cancel-item-move' to SSX items only
+ssx-items-only: false
+
+# -------------------- Advanced -------------------- #
+
+# Prevent SSX items from being dropped when players die. If you want players to keep all items, just use
+# '/gamerule keepInventory true' instead.
+remove-ssx-items-on-death: false
+
+# World whitelist for 'cancel-item-drop' and 'cancel-item-move'. If empty, these options are active in all
+# worlds. Otherwise, they are only active in the specified worlds.
+only-in-worlds: []
+
+# Exceptions to the above option, 'cancel-item-drop' and 'cancel-item-move' will never affect players in
+# these worlds.
+world-exceptions: []
+
+# When this is set to true, stuff that would normally happen when you click an item will not happen.
+# For example, right-clicking with a hoe will not turn dirt into farmland.
+# (only for items that open a menu)
+# This is useful if you use certain items, but can cause problems
+# with some plugins which is why it's disabled by default.
+cancel-click-event: false
+
+# Ignore player right click on server selector item if another plugin has cancelled the event
+# When this is set to true, players will no longer be able to open the server selector if plugins
+# such as WorldGuard don't allow it.
+ignore-cancelled: false

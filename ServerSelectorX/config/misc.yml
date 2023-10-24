@@ -1,0 +1,28 @@
+url-message: '&3&lClick here'
+
+cooldown-message: 'Please wait %.1fs before using this again.'
+
+# A generic no permission message used throughout the plugin. Comment to disable.
+no-permission: 'You do not have permission to use this'
+
+# Send message to console when players don't have the required permission
+permission-debug: true
+
+# Send detailed error message if connection with an external head database fails to load
+head-api-debug: false
+
+placeholders:
+  player-missing: '...' # Value to display when SSX-Connector has not sent a value for a specific player yet, but the placeholder exists
+  missing: '?' # Value to display when requesting a placeholder that was not sent by the server
+  offline: '-' # Value to display when requesting a placeholder while the server is offline
+  # Values for the status placeholder
+  status-online: 'ONLINE'
+  status-offline: 'OFFLINE'
+
+# Set a server name here if you wish to use the `connected` section
+#server-name: ''
+
+# Request a skin texture from the Mojang API by UUID instead of using
+# player heads directly. Leave disabled unless you're having issues
+# where 'head:auto' does not work but 'head:<uuid>' does work.
+mojang-api-head-auto: false
