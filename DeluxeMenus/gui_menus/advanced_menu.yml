@@ -22,11 +22,11 @@ items:
     display_name: '&e&lInformation'
     lore:
       - ''
-      - '&3Weclome to the &b&lOrbital Studios'
+      - '&3Weclome to the &5&lPremier Studios'
       - '&3official server. Please have fun :D'
       - ''
       - '&3For ranks and other cool stuff'
-      - '&3Check our website: &bwww.orbitalstudios.com'
+      - '&3Check our website: &5www.premierstudios.com'
       - ''
   'selector':
     material: 'hdb-6637'
@@ -58,7 +58,7 @@ items:
       - '&3an cool rank and other extras'
       - '&3Take a look at our website for more information'
       - ''
-      - '&bwww.orbitalstudios.com'
+      - '&5www.premierstudios.com'
   'filler_item':
     material: LIME_STAINED_GLASS_PANE
     slots:
