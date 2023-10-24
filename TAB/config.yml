@@ -65,7 +65,7 @@ belowname-objective:
 prevent-spectator-effect:
   enabled: false
 bossbar:
-  enabled: false
+  enabled: true
   toggle-command: /bossbar
   remember-toggle-choice: false
   hidden-by-default: false
@@ -74,7 +74,7 @@ bossbar:
       style: PROGRESS
       color: '%animation:barcolors%'
       progress: '100'
-      text: '&5&lWelcome to the Orbital Lobby'
+      text: '&5&lWelcome to the Premier Lobby'
 scoreboard:
   enabled: true
   toggle-command: /sb
